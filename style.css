@@ -1,0 +1,212 @@
+/* --- VS CODE THEME VARIABLES --- */
+:root {
+    --bg-dark: #1e1e1e;
+    --bg-sidebar: #252526;
+    --bg-header: #323233;
+    --bg-hover: #2a2d2e;
+    --bg-active: #37373d;
+    --text-main: #cccccc;
+    --text-muted: #969696;
+    --accent-blue: #007acc;
+    --border-color: #3c3c3c;
+}
+
+/* --- GLOBAL RESET --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden; /* Prevents whole-page scrolling */
+}
+
+/* Custom Scrollbar for the IDE look */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #424242;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+}
+
+/* --- HEADER / MENU BAR --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-header);
+    height: 35px;
+    padding: 0 15px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+#clear {
+    background: transparent;
+    color: #f48771; /* A soft red for delete */
+    border: 1px solid transparent;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+#clear:hover {
+    border-color: #f48771;
+    background: rgba(244, 135, 113, 0.1);
+}
+
+/* --- MAIN LAYOUT --- */
+.container {
+    display: flex;
+    height: calc(100vh - 35px); /* Full height minus header */
+}
+
+/* --- SIDEBAR (File Explorer) --- */
+#sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-header {
+    padding: 10px 15px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+#newNoteBtn {
+    margin: 0 15px 10px 15px;
+    padding: 6px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+#newNoteBtn:hover {
+    background-color: #005f9e;
+}
+
+#noteList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#noteList li {
+    padding: 6px 15px 6px 30px;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--text-main);
+    position: relative;
+}
+
+/* Adds a little file icon before the note name */
+#noteList li::before {
+    content: "📄";
+    position: absolute;
+    left: 10px;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+#noteList li:hover {
+    background-color: var(--bg-hover);
+}
+
+/* --- WORKSPACE (Editor & Preview) --- */
+.workspace {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+}
+
+/* File Tab */
+.tabs {
+    display: flex;
+    background-color: var(--bg-sidebar);
+    height: 35px;
+}
+
+#noteTitle {
+    background-color: var(--bg-dark);
+    color: var(--accent-blue);
+    border: none;
+    border-top: 1px solid var(--accent-blue); /* Active tab highlight */
+    border-right: 1px solid var(--border-color);
+    padding: 0 20px;
+    font-size: 14px;
+    font-family: inherit;
+    width: 200px;
+    outline: none;
+}
+
+#noteTitle:focus {
+    background-color: var(--bg-active);
+}
+
+/* Split Pane for Editor and Preview */
+.split-pane {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100% - 35px);
+}
+
+/* --- EDITOR --- */
+#editor {
+    width: 50%;
+    background-color: var(--bg-dark);
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Courier New', monospace; /* IDE Font */
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 20px;
+    border: none;
+    border-right: 1px solid var(--border-color);
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Custom selection color inside textarea */
+#editor::selection {
+    background: #264f78; 
+}
+
+/* --- PREVIEW --- */
+#preview {
+    width: 50%;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+#preview strong {
+    color: #569cd6; /* VS Code blue for bold text */
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDE Style Notepad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div>Notes // Workspace</div>
+        <button id="clear">🗑️ Delete File</button>
+    </header>
+
+    <div class="container">
+        
+        <aside id="sidebar">
+            <div class="sidebar-header">Explorer</div>
+            <button id="newNoteBtn">+ New File</button>
+            <ul id="noteList"></ul>
+        </aside>
+
+        <div class="workspace">
+            <div class="tabs">
+                <input type="text" id="noteTitle" placeholder="Untitled Note">
+            </div>
+            
+            <div class="split-pane">
+                <textarea id="editor" spellcheck="false" placeholder="Start typing here..."></textarea>
+                <div id="preview"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
